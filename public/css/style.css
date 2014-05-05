@@ -1,0 +1,26 @@
+html, body, div {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 100%;
+    overflow : hidden;
+}
+
+#main-menu {
+    margin: 0px;
+    padding: 0px;
+}
+
+#canvas {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+}
+
+#rect {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
