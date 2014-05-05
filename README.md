@@ -7,14 +7,14 @@ Dependences
 
 Client:
 
-  - [Semantic-ui](semantic-ui.com)
-  - [Kineticjs](kineticjs.com)
+  - [Semantic-ui](http://semantic-ui.com)
+  - [Kineticjs](http://kineticjs.com)
 
 Server:
 
-  - [nodejs](nodejs.rog)
-  - [npm](npmjs.org)
-  - [mysql](mysql.com)
+  - [nodejs](http://nodejs.rog)
+  - [npm](http://npmjs.org)
+  - [mysql](http://mysql.com)
 
 
 Setup
