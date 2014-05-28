@@ -21,7 +21,25 @@ function showNodeDetail(node) {
     $('#node-detail-sidebar').addClass('active');
 
     var content = $('#node-detail-sidebar-content');
-    content.html('');
+    content.html('<div class="item"></a>');
+
+
+    for (var i = 0; i < node.data.resources.length - 1 ; i++)
+        for (var j = i + 1; j < node.data.resources.length; j++) {
+            if (parseInt(globalAllResources[node.data.resources[j]].data.extend) >
+                parseInt(globalAllResources[node.data.resources[i]].data.extend)) {
+                var temp = node.data.resources[j];
+                node.data.resources[j] = node.data.resources[i];
+                node.data.resources[i] = temp;
+            }
+        }
+
+    for (var i = 0; i < 10; i++) {
+        var resource = globalAllResources[node.data.resources[i]];
+        content.append('<a class="item" onclick="onNodeDetailItemClick(' + resource.data.id + ')">' + resource.data.name +
+            "  " + resource.data.extend + '</a>');
+    }
+
 }
 
 function showPathDetail(path) {
@@ -62,6 +80,20 @@ function onPathDetailItemClick(id) {
     focusOnNode(node);
     preNode = node;
 }
+
+var preResource;
+
+function onNodeDetailItemClick(id) {
+    if (preResource) {
+        preResource.display.fire('mouseout');
+    }
+
+    var resource = globalAllResources[id];
+    resource.display.fire('mouseover');
+    window.open(resource.data.url);
+    preResource = resource;
+}
+
 
 function closeDetail() {
     $('#right-sidebar').removeClass('active');
