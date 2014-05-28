@@ -81,17 +81,9 @@ function onPathDetailItemClick(id) {
     preNode = node;
 }
 
-var preResource;
-
 function onNodeDetailItemClick(id) {
-    if (preResource) {
-        preResource.display.fire('mouseout');
-    }
-
     var resource = globalAllResources[id];
-    resource.display.fire('mouseover');
     window.open(resource.data.url);
-    preResource = resource;
 }
 
 

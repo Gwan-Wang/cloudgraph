@@ -12,6 +12,8 @@ function randomColor() {
     return '#' + r + g + b;
 }
 
+/* =========================== Node ======================================= */
+
 function Node(data) {
     this.data = data;
 
@@ -76,7 +78,7 @@ Node.prototype.show = function(layer) {
     layer.batchDraw();
 };
 
-/* ======================================================================== */
+/* ============================ Path ======================================= */
 
 function Path(data) {
     this.data = data;
@@ -139,11 +141,9 @@ Path.prototype.show = function(layer) {
     layer.batchDraw();
 };
 
+/* ========================== Resource ========================================= */
+
 function Resource(data) {
     this.data = data;
-    this.display = new Kinetic.Group();
 }
 
-Resource.prototype.show = function(layer) {
-    var resource = this;
-}

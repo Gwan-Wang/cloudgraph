@@ -1,6 +1,5 @@
 var socket = io.connect();
 
-
 function displayNode(data) {
     var node = globalAllNodes[data.id];
     if (!node) {
@@ -40,17 +39,14 @@ socket.on('paths', function(paths) {
     }
 });
 
-function displayResource(data) {
-    var resource = globalAllResources[data.id];
-    if (!resource) {
-        resource = new Resource(data);
-        globalAllResources[data.id] = resource;
-    }
-    resource.show(layer);
-}
-
 socket.on('resources', function(resources){
     for (var i in resources) {
-        displayResource(resources[i]);
+        var data = resources[i];
+        var resource = globalAllResources[data.id];
+        if (!resource) {
+            resource = new Resource(data);
+            globalAllResources[data.id] = resource;
+        }
     }
 });
+
