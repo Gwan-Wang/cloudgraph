@@ -39,3 +39,18 @@ socket.on('paths', function(paths) {
         displayPath(paths[i]);
     }
 });
+
+function displayResource(data) {
+    var resource = globalAllResources[data.id];
+    if (!resource) {
+        resource = new Resource(data);
+        globalAllResources[data.id] = resource;
+    }
+    resource.show(layer);
+}
+
+socket.on('resources', function(resources){
+    for (var i in resources) {
+        displayResource(resources[i]);
+    }
+});

@@ -1,5 +1,6 @@
 var globalAllNodes = {};
 var globalAllPaths = {};
+var globalAllResources = {};
 
 function randomColor() {
     var r = parseInt(Math.random() * 16);
@@ -137,3 +138,12 @@ Path.prototype.show = function(layer) {
 
     layer.batchDraw();
 };
+
+function Resource(data) {
+    this.data = data;
+    this.display = new Kinetic.Group();
+}
+
+Resource.prototype.show = function(layer) {
+    var resource = this;
+}
